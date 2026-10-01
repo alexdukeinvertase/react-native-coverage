@@ -75,8 +75,10 @@ android/keystores/debug.keystore
 # Turborepo
 .turbo/
 
-# Agent / ephemeral local notes
-.agents/
+# Agent / ephemeral local notes. The install skill is the one tracked file.
+.agents/*
+!.agents/skills/
+!.agents/skills/**
 
 # CI / local e2e artifacts (logs, LCOV, Jacoco)
 artifacts/

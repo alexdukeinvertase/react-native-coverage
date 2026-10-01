@@ -7,15 +7,29 @@
 <h1 align="center">Code coverage for React Native — Typescript, iOS, and Android — without touching the native stuff.</h1>
 
 <p align="center">
+  <a href="https://www.npmjs.com/package/react-native-coverage"><img src="https://img.shields.io/npm/dm/react-native-coverage" alt="npm downloads" /></a>
+  <a href="https://www.npmjs.com/package/react-native-coverage"><img src="https://img.shields.io/npm/v/react-native-coverage" alt="npm version" /></a>
   <a href="https://app.codecov.io/gh/invertase/react-native-coverage"><img src="https://codecov.io/gh/invertase/react-native-coverage/branch/main/graph/badge.svg" alt="Codecov" /></a>
   <a href="https://docs.page/invertase/react-native-coverage"><img src="https://img.shields.io/badge/docs-docs.page-E8983A" alt="Docs" /></a>
   <img src="https://img.shields.io/badge/architecture-New%20Arch%20only-2D303A" alt="New Architecture only" />
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="Apache-2.0" /></a>
 </p>
 
+**react-native-coverage** is a React Native library for **iOS and Android** that produces native and TypeScript coverage from end-to-end runs in a dedicated test app.
+
 <p align="center">
   Install it into a dedicated test / e2e harness app (<a href="https://docs.page/invertase/react-native-coverage/pattern-c">Pattern&nbsp;C</a>) — never your shipping app.
 </p>
+
+## Quick Prompt
+
+**Prompt your agent:**
+
+```txt
+Read https://docs.page/invertase/react-native-coverage/app-developers, and set up react-native-coverage in this project.
+```
+
+**Or set it up yourself:** follow [App developers](https://docs.page/invertase/react-native-coverage/app-developers), or the [Install](#install) section below.
 
 <p align="center">
   A TurboModule flushes real device coverage; the CLI pulls it, <strong>merges</strong> every framework's <code>.profraw</code> and the app binary into clean LCOV&nbsp;/&nbsp;Jacoco, and remaps your instrumented JS line-for-line back to TypeScript. Use that as a signal in your development loop or CI to gate development iterations or CI pass/fail.
@@ -105,36 +119,9 @@ pattern this README describes.
 
 ---
 
-## Have your agent wire it up
-
-Paste this into your coding agent (Cursor, Claude, Codex, …) **before** you touch Gradle or
-Podfiles by hand:
-
-```text
-Integrate react-native-coverage into this repo's dedicated React Native test /
-e2e harness app only (Pattern C — never the production app package.json).
-
-Constraints:
-- New Architecture / TurboModule only
-- Follow https://docs.page/invertase/react-native-coverage
-- Prefer the Expo config plugin when the harness is Expo; otherwise use the bare
-  Gradle + CocoaPods Ruby helpers from the integration docs
-- Wire libraryProjectMatchers / frameworkNamePrefixes for every native library
-  we need hits from
-- Add CI steps that pull coverage and fail with rn-coverage assert (exit 2)
-  when hits are empty
-- Do not invent product-app install paths; keep the package out of the shipping app
-
-After install: yarn/npm add react-native-coverage in the harness, apply the plugin or
-manual hooks, prebuild / pod install as needed, then show me the exact CI commands
-to run and what green looks like.
-```
-
----
-
 ## Install
 
-Install in the **harness** (your dedicated test/e2e app), never the product app:
+**Or set it up yourself.** Install in the **harness** (your dedicated test/e2e app), never the product app. The same steps are on [App developers](https://docs.page/invertase/react-native-coverage/app-developers).
 
 ```sh
 yarn add react-native-coverage
@@ -253,15 +240,23 @@ Conventional Commits + semantic-release, **manual `workflow_dispatch` only** (no
 push-to-main publish). Operator steps:
 [docs → Releasing](https://docs.page/invertase/react-native-coverage/releasing).
 
+## Contributing
+
+- [Issues](https://github.com/invertase/react-native-coverage/issues)
+- [Pull requests](https://github.com/invertase/react-native-coverage/pulls)
+- [Contributing guide](./CONTRIBUTING.md)
+- [Code of Conduct](https://github.com/invertase/.github/blob/main/CODE_OF_CONDUCT.md)
+
 ## License
 
 Apache-2.0 — see [LICENSE](./LICENSE).
 
 <p align="center">
-  <br/>
-  <a href="https://invertase.io">
-    <img src="./docs/assets/brand/invertase-honeycomb-96x96.png" alt="Invertase" width="48" height="48" />
+  <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=react-native-coverage">
+    <img width="75px" src="https://static.invertase.io/assets/invertase/invertase-rounded-avatar.png" alt="Invertase" />
   </a>
-  <br/>
-  <sub>Built and maintained by <a href="https://invertase.io">Invertase</a>.</sub>
+</p>
+
+<p align="center">
+  Built and maintained by <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=react-native-coverage">Invertase</a>.
 </p>
